@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* --- Base -------------------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- Reusable animations ------------------------------------------------ */
+
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes thinking-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.message-in {
+  animation: message-in 0.18s ease-out both;
+}
+
+.fade-up {
+  animation: fade-up 0.2s ease-out both;
+}
+
+.thinking-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  animation: thinking-bounce 1.2s infinite ease-in-out;
+}
+
+.thinking-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.thinking-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* --- Scrollbars --------------------------------------------------------- */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(163 163 163 / 0.6) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgb(82 82 82 / 0.8) transparent;
+}
+
+/* --- Typography (prose) overrides -------------------------------------- */
+
+.markdown-body .prose {
+  max-width: none;
+}
+
+.markdown-body pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.markdown-body :not(pre) > code {
+  font-size: 0.85em;
+}
+
+/* --- Syntax highlighting (rehype-highlight, GitHub-dark-ish) ------------ */
+
+.hljs-comment,
+.hljs-quote {
+  color: rgb(148 163 184);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-type,
+.hljs-name,
+.hljs-meta .hljs-keyword {
+  color: rgb(165 180 252);
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title,
+.hljs-attr {
+  color: rgb(253 186 116);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-template-variable,
+.hljs-variable {
+  color: rgb(134 239 172);
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-meta,
+.hljs-link {
+  color: rgb(216 180 254);
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: rgb(125 211 252);
+}
+
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: rgb(253 186 116);
+}
+
+.hljs-deletion {
+  color: rgb(252 165 165);
+}
+
+/* Respect user preference for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

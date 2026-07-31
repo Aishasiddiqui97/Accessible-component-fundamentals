@@ -1,0 +1,42 @@
+{
+  "name": "streaming-ai-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-quality streaming AI chat interface built with Next.js 15, React 19, TypeScript, Tailwind CSS, the Vercel AI SDK and Claude (Anthropic).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "4.0.25",
+    "@ai-sdk/react": "4.0.47",
+    "@tailwindcss/typography": "0.5.20",
+    "ai": "7.0.44",
+    "clsx": "2.1.1",
+    "lucide-react": "1.28.0",
+    "next": "15.5.22",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-markdown": "10.1.0",
+    "rehype-highlight": "7.0.2",
+    "remark-gfm": "4.0.1",
+    "tailwind-merge": "3.6.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.3",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.5.22",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
